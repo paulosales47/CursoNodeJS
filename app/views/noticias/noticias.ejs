@@ -7,6 +7,21 @@
 	<body>
 
 		<h1>Notícias</h1>
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>Titulo</td>
+				<td>Noticia</td>
+			</tr>
+			
+			<% for(var indice = 0; indice < noticias.length; indice++) { %>
+				<tr>
+					<td><%= noticias[indice].ID_NOTICIA %></td>
+					<td><%= noticias[indice].TITULO %></td>
+					<td><%= noticias[indice].NOTICIA %></td>
+				</tr>
+			<% } %>
+		</table>
 
 	</body>
 </html>
