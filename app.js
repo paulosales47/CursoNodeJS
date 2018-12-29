@@ -1,8 +1,4 @@
-let mensagem = require('./modulo_teste')
-let express = require('express');
-let app = express();
-
-app.set('view engine', 'ejs');
+let app = require('./config/server');
 
 app.get('/', function(requisicao, resposta){
     resposta.render('home/render');
@@ -23,6 +19,5 @@ app.get('/noticia', function(requisicao, resposta){
 
 app.listen(3000, function(){
     console.log('Servidor rodando com Express');
-    console.log(mensagem());
 })
 
