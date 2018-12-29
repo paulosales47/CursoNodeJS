@@ -1,0 +1,19 @@
+{
+  "name": "portal_noticias",
+  "version": "1.0.0",
+  "description": "Site de noticias",
+  "main": "noticia.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulosales47/CursoNodeJS.git"
+  },
+  "author": "Paulo Henrique Sales Sampaio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulosales47/CursoNodeJS/issues"
+  },
+  "homepage": "https://github.com/paulosales47/CursoNodeJS#readme"
+}
