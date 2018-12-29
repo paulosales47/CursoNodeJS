@@ -1,20 +1,8 @@
 let app = require('./config/server');
 
-app.get('/', function(requisicao, resposta){
-    resposta.render('home/render');
-});
-
-app.get('/tecnologia', function(requisicao, resposta){
-    resposta.render('secao/tecnologia');
-});
-
-app.get('/formulario_inclusao_noticia', function(requisicao, resposta){
-    resposta.render('admin/form_add_noticia');
-});
-
-app.get('/noticia', function(requisicao, resposta){
-    resposta.render('noticias/noticias');
-});
+require('./app/routes/noticias')(app);
+require('./app/routes/formulario_inclusao_noticia')(app);
+require('./app/routes/home')(app);
 
 
 app.listen(3000, function(){
