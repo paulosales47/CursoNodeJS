@@ -8,7 +8,7 @@ app.get('/', function(requisicao, resposta){
 });
 
 app.get('/tecnologia', function(requisicao, resposta){
-    resposta.send('<html><body><h1>PAGINA DE TECNOLOGIA</h1></body></html>');
+    resposta.render('secao/tecnologia');
 });
 
 app.listen(3000, function(){
