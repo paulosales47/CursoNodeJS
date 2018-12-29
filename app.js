@@ -1,3 +1,4 @@
+let mensagem = require('./modulo_teste')
 let express = require('express');
 let app = express();
 
@@ -22,5 +23,6 @@ app.get('/noticia', function(requisicao, resposta){
 
 app.listen(3000, function(){
     console.log('Servidor rodando com Express');
+    console.log(mensagem());
 })
 
