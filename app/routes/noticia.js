@@ -1,10 +1,11 @@
 module.exports = function(app){
-    app.get('/noticias', function(requisicao, resposta){
+    app.get('/noticia', function(requisicao, resposta){
 
         let conexao = app.config.dbConnection();
+        let noticiaModel = app.app.models.noticiaModel;
 
-        conexao.query('SELECT * FROM portal_noticias.tb_noticias where ID_NOTICIA = 1',  function(erro, resultado){
-            resposta.render('noticias/noticias', {noticia: resultado});
+        noticiaModel.BuscarNoticia(conexao, function(erro, resultado){
+            resposta.render('noticias/noticias', {noticias: resultado});
         }); 
     });
 }
