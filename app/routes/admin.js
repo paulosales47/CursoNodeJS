@@ -5,8 +5,8 @@ module.exports = function(aplicacao){
 
     aplicacao.post('/Noticias/Salvar', function(requisicao, resposta){
         let noticia = requisicao.body;
-        let noticiaDAO = aplicacao.app.models.NoticiaDAO(conexao);
         let conexao = aplicacao.config.dbConnection();
+        let noticiaDAO = new aplicacao.app.models.NoticiaDAO(conexao);
 
         noticiaDAO.SalvarNoticia(noticia, function(erro, resultado){
             resposta.redirect('/noticias');
