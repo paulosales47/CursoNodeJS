@@ -5,10 +5,10 @@ module.exports = function(aplicacao){
 
     aplicacao.post('/Noticias/Salvar', function(requisicao, resposta){
         let noticia = requisicao.body;
-        let noticiaModel = aplicacao.app.models.noticiaModel;
+        let noticiaDAO = aplicacao.app.models.NoticiaDAO(conexao);
         let conexao = aplicacao.config.dbConnection();
 
-        noticiaModel.SalvarNoticia(noticia, conexao, function(erro, resultado){
+        noticiaDAO.SalvarNoticia(noticia, function(erro, resultado){
             resposta.redirect('/noticias');
         }); 
     });
