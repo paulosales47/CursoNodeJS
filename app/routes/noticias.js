@@ -1,5 +1,5 @@
 module.exports = function(app){
-    app.get('/noticia', function(requisicao, resposta){
+    app.get('/noticias', function(requisicao, resposta){
 
         let conexao = app.config.dbConnection();
 
