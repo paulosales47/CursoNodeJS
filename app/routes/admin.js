@@ -15,7 +15,7 @@ module.exports = function(aplicacao){
     ],(requisicao, resposta) => {
         let noticia = requisicao.body;
         let errosFormulario = validationResult(requisicao);
-        console.log(errosFormulario.isEmpty())
+        
         if(!errosFormulario.isEmpty())
         {
             resposta.render('admin/form_add_noticia');
