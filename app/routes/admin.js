@@ -15,10 +15,11 @@ module.exports = function(aplicacao){
     ],(requisicao, resposta) => {
         let noticia = requisicao.body;
         let errosFormulario = validationResult(requisicao);
-        
+        console.log(errosFormulario.mapped());
+
         if(!errosFormulario.isEmpty())
         {
-            resposta.render('admin/form_add_noticia');
+            resposta.render('admin/form_add_noticia', {validacao: errosFormulario.mapped()});
             return;
         }
 
