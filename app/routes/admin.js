@@ -2,7 +2,7 @@ let {check, validationResult}  = require('express-validator/check');
 
 module.exports = function(aplicacao){
     aplicacao.get('/formulario_inclusao_noticia', function(requisicao, resposta){
-        resposta.render('admin/form_add_noticia');
+        resposta.render('admin/form_add_noticia', {validacao: false});
     });
 
     aplicacao.post('/Noticias/Salvar', [
@@ -15,7 +15,8 @@ module.exports = function(aplicacao){
     ],(requisicao, resposta) => {
         let noticia = requisicao.body;
         let errosFormulario = validationResult(requisicao);
-        console.log(errosFormulario.mapped());
+
+        console.log('teste');
 
         if(!errosFormulario.isEmpty())
         {
