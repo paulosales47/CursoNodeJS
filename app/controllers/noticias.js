@@ -1,8 +1,9 @@
-module.exports.noticia = function(aplicacao, resposta){
+module.exports.noticia = function(requsicao, aplicacao, resposta){
+    let id_noticia = requsicao.query.id_noticia;
     let conexao = aplicacao.config.dbConnection();
     let noticiaDAO = new aplicacao.app.models.NoticiaDAO(conexao);
-
-    noticiaDAO.BuscarNoticia(function(erro, resultado){
+    
+    noticiaDAO.BuscarNoticia(id_noticia, function(erro, resultado){
         resposta.render('noticias/noticia', {noticia: resultado});
     }); 
 }
