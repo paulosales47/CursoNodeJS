@@ -11,6 +11,10 @@ class NoticiaDAO {
     SalvarNoticia(noticia, callback) {
         this._conexao.query('INSERT INTO TB_NOTICIAS SET ?', noticia, callback);
     }
+
+    BuscarUltimasNoticias(quantidade, callback) {
+        this._conexao.query('SELECT * FROM portal_noticias.tb_noticias ORDER BY DT_CRIACAO DESC LIMIT ' + quantidade, callback);
+    }
 }
 
 module.exports = function(){
