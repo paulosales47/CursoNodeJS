@@ -1,5 +1,5 @@
-module.exports = function(app){
-        app.get('/', function(requisicao, resposta){
-        resposta.render('home/index');
+module.exports = function(aplicacao){
+        aplicacao.get('/', function(requisicao, resposta){
+        aplicacao.app.controllers.home.home(resposta);
     });
 }

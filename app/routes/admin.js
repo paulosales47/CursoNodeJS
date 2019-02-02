@@ -2,7 +2,7 @@ let {check, validationResult}  = require('express-validator/check');
 
 module.exports = function(aplicacao){
     aplicacao.get('/formulario_inclusao_noticia', function(requisicao, resposta){
-        resposta.render('admin/form_add_noticia', {validacao: {}, noticia: {} });
+        aplicacao.app.controllers.admin.formulario_inclusao_noticia(resposta);
     });
 
     aplicacao.post('/Noticias/Salvar', [
@@ -12,22 +12,8 @@ module.exports = function(aplicacao){
         check('AUTOR', 'Autor é obrigatório').not().isEmpty(),
         check('DT_NOTICIA', 'Data da notícia é obrigatório').not().isEmpty(),
         check('NOTICIA', 'Notícia é obrigatório').not().isEmpty()
-    ],(requisicao, resposta) => {
-        let noticia = requisicao.body;
-        let errosFormulario = validationResult(requisicao);
-
-        if(!errosFormulario.isEmpty())
-        {
-            console.log(errosFormulario.array());
-            resposta.render('admin/form_add_noticia', {validacao: errosFormulario.array(), noticia: noticia});
-            return;
-        }
-
-        let conexao = aplicacao.config.dbConnection();
-        let noticiaDAO = new aplicacao.app.models.NoticiaDAO(conexao);
-
-        noticiaDAO.SalvarNoticia(noticia, function(erro, resultado){
-            resposta.redirect('/noticias');
-        }); 
+    ],(requisicao, resposta) => 
+    {
+       aplicacao.app.controllers.admin.salvar_noticia(aplicacao, requisicao, resposta, validationResult);
     });
 }
