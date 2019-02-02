@@ -1,5 +1,5 @@
 module.exports.formulario_inclusao_noticia = function(resposta){
-    resposta.render('admin/form_add_noticia', {validacao: {}, noticia: {} });
+    resposta.render('admin/form_add_noticia', {validacao: false, noticia: {} });
 }
 
 module.exports.salvar_noticia = function(aplicacao, requisicao, resposta, validationResult){

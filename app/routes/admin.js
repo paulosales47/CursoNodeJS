@@ -5,7 +5,7 @@ module.exports = function(aplicacao){
         aplicacao.app.controllers.admin.formulario_inclusao_noticia(resposta);
     });
 
-    aplicacao.post('/Noticias/Salvar', [
+    aplicacao.post('/noticias/salvar', [
         check('TITULO', 'Titulo é obrigatório').not().isEmpty(),
         check('RESUMO', 'Resumo é obrigatório').not().isEmpty(),
         check('RESUMO', 'Resumo deve conter entre 10 e 100 caracteres').isLength(10, 100),
